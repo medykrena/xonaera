@@ -1,2 +1,2 @@
 # xonaera
-site vitrine Xonaera - Services drone professionels
+Main website for Xonaera — drone inspection services in Switzerland
