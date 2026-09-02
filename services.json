@@ -1,0 +1,20 @@
+{
+  "inspection_toiture": {
+    "nom": "Inspection de toiture",
+    "prix_base_chf": 390,
+    "prix_par_m2_chf": 0.8,
+    "unite": "CHF"
+  },
+  "thermographie": {
+    "nom": "Thermographie de bâtiment",
+    "prix_base_chf": 500,
+    "prix_par_m2_chf": 1.2,
+    "unite": "CHF"
+  },
+  "solaire": {
+    "nom": "Analyse de panneaux solaires",
+    "prix_base_chf": 550,
+    "prix_par_m2_chf": 1.0,
+    "unite": "CHF"
+  }
+}
