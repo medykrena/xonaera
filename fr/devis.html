@@ -3,10 +3,182 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Demande de devis — Xonaera</title>
+  <meta name="description" content="Estimez le prix indicatif d'une inspection ou analyse par drone en Suisse et envoyez votre demande de devis à Xonaera.">
+  <meta name="robots" content="index, follow">
+
+  <link rel="canonical" href="https://xonaera.ch/fr/devis.html">
+
+  <link rel="alternate" hreflang="fr" href="https://xonaera.ch/fr/devis.html">
+  <link rel="alternate" hreflang="de" href="https://xonaera.ch/de/angebot.html">
+  <link rel="alternate" hreflang="x-default" href="https://xonaera.ch/fr/devis.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://xonaera.ch/fr/devis.html">
+  <meta property="og:title" content="Demande de devis — Xonaera">
+  <meta property="og:description" content="Estimez le prix indicatif de votre prestation d'analyse par drone et envoyez votre demande à Xonaera.">
+  <meta property="og:image" content="https://xonaera.ch/assets/images/og-image.jpg">
+  <meta property="og:locale" content="fr_CH">
+
+  <link rel="icon" href="/assets/icons/favicon.ico">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <link rel="stylesheet" href="/css/main.css">
 </head>
+
 <body>
-  <h1>Demande de devis</h1>
-  <p>Page en construction.</p>
+
+  <header>
+    <nav aria-label="Navigation principale">
+      <a href="/fr/" aria-label="Xonaera — Accueil">XONAERA</a>
+      <ul>
+        <li><a href="/fr/services.html">Services</a></li>
+        <li><a href="/fr/inspection-thermique.html">Thermographie</a></li>
+        <li><a href="/fr/mapping-modelisation.html">Mapping 3D</a></li>
+        <li><a href="/fr/realisations.html">Réalisations</a></li>
+        <li><a href="/fr/academy/">Drone Academy</a></li>
+        <li><a href="/fr/a-propos.html">À propos</a></li>
+        <li><a href="/fr/devis.html" aria-current="page">Devis gratuit</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <h1>Demande de devis</h1>
+
+    <p>
+      Utilisez le calculateur ci-dessous pour obtenir une estimation indicative
+      du prix de votre prestation.
+    </p>
+
+    <p>
+      <strong>Estimation indicative — le prix final sera confirmé après échange avec vous.</strong>
+    </p>
+
+    <section aria-labelledby="calculateur-titre">
+
+      <h2 id="calculateur-titre">Estimer votre prestation</h2>
+
+      <div>
+        <label for="service">Service</label>
+        <select id="service" name="service">
+          <option value="inspection_toiture">Inspection de toiture</option>
+          <option value="thermographie">Thermographie de bâtiment</option>
+          <option value="solaire">Analyse de panneaux solaires</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="surface">Surface estimée (m²)</label>
+        <input
+          type="number"
+          id="surface"
+          name="surface"
+          min="0"
+          step="1"
+          value="100"
+          inputmode="numeric"
+        >
+      </div>
+
+      <div>
+        <label for="progression">Surface indiquée</label>
+        <progress id="progression" value="100" max="1000">100 m²</progress>
+      </div>
+
+      <div>
+        <p>
+          Estimation :
+          <strong><span id="total">—</span> CHF</strong>
+        </p>
+      </div>
+
+    </section>
+
+    <section aria-labelledby="demande-titre">
+
+      <h2 id="demande-titre">Envoyer votre demande</h2>
+
+      <p>
+        Après avoir consulté l'estimation, vous pouvez nous transmettre votre
+        demande afin que nous puissions confirmer les besoins et le prix final.
+      </p>
+
+      <form name="devis" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+
+        <input type="hidden" name="form-name" value="devis">
+
+        <p class="hidden">
+          <input name="bot-field">
+        </p>
+
+        <p>
+          <label>
+            Nom
+            <input type="text" name="name" required>
+          </label>
+        </p>
+
+        <p>
+          <label>
+            Email
+            <input type="email" name="email" required>
+          </label>
+        </p>
+
+        <p>
+          <label>
+            Service souhaité
+            <select name="service" id="service-demande" required>
+              <option value="inspection_toiture">Inspection de toiture</option>
+              <option value="thermographie">Thermographie de bâtiment</option>
+              <option value="solaire">Analyse de panneaux solaires</option>
+            </select>
+          </label>
+        </p>
+
+        <p>
+          <label>
+            Surface estimée (m²)
+            <input type="number" name="surface" id="surface-demande" min="0" step="1" inputmode="numeric">
+          </label>
+        </p>
+
+        <p>
+          <label>
+            Message
+            <textarea name="message" rows="6" required></textarea>
+          </label>
+        </p>
+
+        <button type="submit">Envoyer ma demande</button>
+
+      </form>
+
+    </section>
+
+  </main>
+
+  <footer>
+    <p>
+      <a href="/fr/">Accueil</a> ·
+      <a href="/fr/services.html">Services</a> ·
+      <a href="/fr/realisations.html">Réalisations</a> ·
+      <a href="/fr/academy/">Drone Academy</a> ·
+      <a href="/fr/a-propos.html">À propos</a> ·
+      <a href="/fr/contact.html">Contact</a>
+    </p>
+    <p>
+      <a href="/fr/mentions-legales.html">Mentions légales</a> ·
+      <a href="/fr/confidentialite.html">Politique de confidentialité</a> ·
+      <a href="/fr/cgv.html">CGV</a>
+    </p>
+    <p>© 2026 Xonaera · Inspection professionnelle par drone en Suisse</p>
+  </footer>
+
+  <script src="/js/devis.js"></script>
+
 </body>
 </html>
