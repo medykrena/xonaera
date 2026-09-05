@@ -50,9 +50,7 @@ Ce fichier constitue la référence des chemins internes du site.
 - `/de/kontakt.html` — Kontakt
 - `/de/impressum.html` — Impressum
 - `/de/datenschutz.html` — Datenschutz
-- `/de/abg.html` — Allgemeine Geschäftsbedingungen
-
-**Attention : le fichier allemand est `abg.html`. Ne pas utiliser ou recréer `agb.html`.**
+- `/de/agb.html` — Allgemeine Geschäftsbedingungen
 
 ### Blog
 
