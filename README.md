@@ -79,7 +79,7 @@ Le site est disponible en français et en allemand.
     ├── kontakt.html
     ├── datenschutz.html
     ├── impressum.html
-    ├── abg.html
+    ├── agb.html
     └── blog/
 ````
 
@@ -222,9 +222,7 @@ Exemple :
 Pour les conditions générales :
 
 /fr/cgv.html
-/de/abg.html
-
-Ne pas recréer de/agb.html : le fichier allemand actuel est de/abg.html.
+/de/agb.html
 
 Drone Academy
 
