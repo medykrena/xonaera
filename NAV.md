@@ -28,7 +28,7 @@ Ce fichier constitue la référence des chemins internes du site.
 ### Blog
 
 - `/fr/blog/` — Blog
-- `/fr/blog/drones-inspection-toiture.html` — Article inspection de toiture
+- `/fr/blog/inspection-toiture-drone.html` — Article inspection de toiture
 - `/fr/blog/thermographie-batiment-drone.html` — Article thermographie de bâtiment
 
 ## Version allemande
