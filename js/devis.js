@@ -8,6 +8,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const serviceFormSelect = document.getElementById("service-demande");
   const serviceFormSurface = document.getElementById("surface-demande");
 
+  const MAX_SURFACE_RAISONNABLE = 5000;
+
   let services = {};
 
   fetch("/services.json")
@@ -39,6 +41,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (isNaN(surface) || surface < 0) {
       surface = 0;
+    }
+
+    if (surface > MAX_SURFACE_RAISONNABLE) {
+      surface = MAX_SURFACE_RAISONNABLE;
+      surfaceInput.value = MAX_SURFACE_RAISONNABLE;
     }
 
     const total =
