@@ -1,4 +1,5 @@
 # xonaera
+
 Main website for Xonaera — drone inspection services in Switzerland
 
 # Xonaera
@@ -81,7 +82,7 @@ Le site est disponible en français et en allemand.
     ├── impressum.html
     ├── agb.html
     └── blog/
-````
+```
 
 Technologies
 
@@ -104,6 +105,7 @@ aucun système de paiement ;
 aucun backend applicatif ;
 aucune Netlify Function ;
 aucune dépendance Brevo nécessaire au fonctionnement du site.
+
 Calculateur de prix
 
 Le calculateur de prix de la page Devis utilise :
@@ -193,6 +195,7 @@ URL Open Graph ;
 sitemap ;
 liens présents dans le footer ;
 éventuels liens depuis NAV.md.
+
 Contenu multilingue
 
 La version française se trouve dans :
@@ -255,6 +258,7 @@ vérifier canonical et hreflang lorsqu'une version dans l'autre langue existe ;
 mettre à jour les index de blog ;
 vérifier le footer ;
 mettre à jour le sitemap si nécessaire.
+
 Navigation
 
 NAV.md constitue une référence pratique pour la navigation interne du projet.
@@ -280,7 +284,9 @@ effectuer uniquement les modifications nécessaires ;
 vérifier les liens et dépendances concernés ;
 vérifier le rendu ou le comportement correspondant ;
 vérifier le déploiement Netlify lorsque la modification est en production.
+
 Règles importantes
+
 Ne pas introduire de framework frontend sans décision explicite.
 Ne pas ajouter de backend ou de base de données sans décision explicite.
 Ne pas réintroduire les Netlify Functions supprimées.
@@ -291,6 +297,7 @@ Utiliser les chemins réellement présents dans le dépôt.
 Vérifier canonical et hreflang lors de toute modification structurelle.
 Mettre à jour services.json si les prix du calculateur changent.
 Ne pas transformer les prix indicatifs du calculateur en promesse commerciale.
+
 État fonctionnel vérifié
 
 Les éléments suivants ont été vérifiés :
