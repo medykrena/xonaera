@@ -1,10 +1,45 @@
-/* Styles globaux Xonaera */
 /* =========================================================
-   XONAERA — Base CSS
-   Mise en forme simple et lisible
+   XONAERA — Design system
+   Fond anthracite/bleu pétrole, accents néon vert/jaune/rouge,
+   Montserrat (titres) + Inter (texte courant).
+   Le néon est un accent qui guide le regard, pas un décor permanent.
    ========================================================= */
 
-/* ---------- Base ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600&display=swap');
+
+/* ---------- Tokens ---------- */
+
+:root {
+  /* Surfaces */
+  --bg: #0a0e17;
+  --bg-elevated: #0f1524;
+  --surface: rgba(255, 255, 255, 0.045);
+  --surface-hover: rgba(255, 255, 255, 0.07);
+  --border: rgba(255, 255, 255, 0.09);
+  --border-strong: rgba(255, 255, 255, 0.16);
+
+  /* Texte */
+  --text: #eef1f7;
+  --text-muted: #8d96ac;
+
+  /* Accents de marque (issus du logo) */
+  --green: #2fe08a;
+  --yellow: #ffc94d;
+  --red: #ff5c5c;
+  --gradient-brand: linear-gradient(90deg, var(--green), var(--yellow), var(--red));
+
+  /* Rayons & ombres */
+  --radius: 14px;
+  --radius-sm: 8px;
+  --radius-pill: 999px;
+  --glow-green: 0 0 24px rgba(47, 224, 138, 0.28);
+
+  /* Typo */
+  --font-display: 'Montserrat', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+/* ---------- Reset & base ---------- */
 
 * {
   box-sizing: border-box;
@@ -16,125 +51,477 @@ html {
 
 body {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.6;
-  color: #222;
-  background: #fff;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
 }
 
-/* ---------- Contenu principal ---------- */
-
-main {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 40px 20px;
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
-section {
-  margin-bottom: 50px;
-}
+/* ---------- Typographie ---------- */
 
-h1,
-h2,
-h3 {
-  line-height: 1.25;
+h1, h2, h3 {
+  font-family: var(--font-display);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--text);
 }
 
 h1 {
-  margin-top: 0;
-  margin-bottom: 20px;
+  font-size: clamp(2.1rem, 4.2vw, 3.4rem);
+  font-weight: 800;
+  margin: 0 0 20px;
 }
 
 h2 {
-  margin-bottom: 15px;
+  font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+  font-weight: 700;
+  margin: 0 0 18px;
 }
 
 h3 {
-  margin-bottom: 10px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0 0 10px;
 }
 
 p {
-  margin-top: 0;
-  margin-bottom: 16px;
+  margin: 0 0 16px;
+  max-width: 68ch;
+  color: var(--text-muted);
 }
 
-/* ---------- Liens ---------- */
+section p:first-of-type {
+  color: var(--text-muted);
+}
+
+strong {
+  color: var(--text);
+}
 
 a {
-  color: #174a7e;
+  color: var(--green);
+  text-decoration: none;
 }
 
 a:hover {
-  text-decoration: none;
+  text-decoration: underline;
 }
 
-/* ---------- Navigation ---------- */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 3px;
+}
+
+/* ---------- Layout ---------- */
+
+main {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+section {
+  padding: 72px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+section:last-of-type {
+  border-bottom: none;
+}
+
+/* ---------- Header / Navigation ---------- */
 
 header {
-  border-bottom: 1px solid #ddd;
-  background: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(10, 14, 23, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
 }
 
 nav {
-  max-width: 1100px;
+  max-width: 1180px;
   margin: 0 auto;
-  padding: 15px 20px;
+  padding: 16px 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  gap: 24px;
 }
 
 nav > a {
-  font-weight: bold;
-  font-size: 1.2rem;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.25rem;
+  letter-spacing: 0.02em;
   text-decoration: none;
-  color: inherit;
+  color: var(--text);
   white-space: nowrap;
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 nav ul {
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 22px;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-nav li {
-  margin: 0;
+nav ul a {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.15s ease;
 }
 
-nav ul a {
+nav ul a:hover,
+nav ul a[aria-current="page"] {
+  color: var(--text);
   text-decoration: none;
 }
 
-nav ul a:hover {
-  text-decoration: underline;
+/* ---------- Boutons ---------- */
+
+a[href],
+button {
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, border-color 0.15s ease;
 }
 
-/* ---------- Articles / services ---------- */
-
-article {
-  margin-bottom: 35px;
+section p a,
+form button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 26px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  margin: 4px 10px 4px 0;
 }
 
-article + article {
-  border-top: 1px solid #ddd;
-  padding-top: 30px;
+/* Bouton principal : premier lien d'un paragraphe de call-to-action */
+section p a:first-child {
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid transparent;
+  background-image: linear-gradient(var(--bg), var(--bg)), var(--gradient-brand);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  box-shadow: var(--glow-green);
+}
+
+section p a:first-child:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 32px rgba(47, 224, 138, 0.4);
+  text-decoration: none;
+}
+
+/* Bouton secondaire : lien suivant dans le même paragraphe CTA */
+section p a:first-child + a {
+  border: 1px solid var(--border-strong);
+  color: var(--text);
+}
+
+section p a:first-child + a:hover {
+  border-color: var(--green);
+  color: var(--green);
+  text-decoration: none;
+}
+
+/* Liens simples "En savoir plus" dans les cartes : pas traités comme boutons */
+article a {
+  display: inline;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--green);
+  font-weight: 600;
+  margin: 0;
+}
+
+article a::after {
+  content: ' →';
+}
+
+form button {
+  background: var(--green);
+  color: #06130c;
+  border: none;
+  cursor: pointer;
+  box-shadow: var(--glow-green);
+}
+
+form button:hover {
+  background: #46f0a0;
+  transform: translateY(-1px);
+}
+
+/* ---------- Hero ---------- */
+
+section[aria-labelledby="hero-titre"] {
+  padding: 96px 0 80px;
+  background:
+    radial-gradient(ellipse 60% 50% at 15% 20%, rgba(47, 224, 138, 0.10), transparent 60%),
+    radial-gradient(ellipse 50% 45% at 85% 30%, rgba(255, 92, 92, 0.08), transparent 60%),
+    var(--bg-elevated);
+  background-size: cover;
+  border-bottom: 1px solid var(--border);
+}
+
+section[aria-labelledby="hero-titre"] > p:first-child {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--green);
+  max-width: none;
+}
+
+section[aria-labelledby="hero-titre"] h1 {
+  max-width: 18ch;
+}
+
+section[aria-labelledby="hero-titre"] p {
+  font-size: 1.1rem;
+  max-width: 58ch;
+}
+
+/* ---------- Section "Valeur ajoutée" (fond alterné) ---------- */
+
+section[aria-labelledby="valeur-titre"] {
+  background: var(--bg-elevated);
+}
+
+/* ---------- Cartes de service ---------- */
+
+section[aria-labelledby="services-titre"] {
+  display: block;
+}
+
+section[aria-labelledby="services-titre"] > article {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 24px;
+  align-items: stretch;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 20px;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+section[aria-labelledby="services-titre"] > article:hover {
+  background: var(--surface-hover);
+  border-color: var(--border-strong);
+}
+
+/* Emplacement image — à remplir : /assets/images/card-{toiture|solaire|thermographie|mapping}.jpg */
+section[aria-labelledby="services-titre"] > article::before {
+  content: '';
+  display: block;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(135deg, var(--bg-elevated), var(--bg));
+  border: 1px dashed var(--border-strong);
+  min-height: 140px;
+}
+
+section[aria-labelledby="services-titre"] > article:nth-of-type(1)::before {
+  background-image: url('/assets/images/card-toiture.jpg');
+  background-size: cover;
+  background-position: center;
+}
+section[aria-labelledby="services-titre"] > article:nth-of-type(2)::before {
+  background-image: url('/assets/images/card-solaire.jpg');
+  background-size: cover;
+  background-position: center;
+}
+section[aria-labelledby="services-titre"] > article:nth-of-type(3)::before {
+  background-image: url('/assets/images/card-thermographie.jpg');
+  background-size: cover;
+  background-position: center;
+}
+section[aria-labelledby="services-titre"] > article:nth-of-type(4)::before {
+  background-image: url('/assets/images/card-mapping.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+section[aria-labelledby="services-titre"] > article h3 {
+  margin-top: 4px;
+}
+
+/* ---------- Bandeau Dossier PPE — offre phare ---------- */
+
+section[aria-labelledby="ppe-titre"] {
+  background: var(--bg-elevated);
+  position: relative;
+}
+
+section[aria-labelledby="ppe-titre"]::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-top: 2px solid transparent;
+  border-image: var(--gradient-brand) 1;
+  opacity: 0.6;
+}
+
+section[aria-labelledby="ppe-titre"] > * {
+  position: relative;
+}
+
+section[aria-labelledby="ppe-titre"] h2 {
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ---------- Comment ça fonctionne (étapes) ---------- */
+
+ol {
+  list-style: none;
+  margin: 0 0 24px;
+  padding: 0;
+  counter-reset: step;
+}
+
+ol li {
+  counter-increment: step;
+  position: relative;
+  padding: 4px 0 24px 52px;
+  border-left: 1px solid var(--border-strong);
+  margin-left: 17px;
+  color: var(--text-muted);
+}
+
+ol li:last-child {
+  border-left-color: transparent;
+  padding-bottom: 0;
+}
+
+ol li::before {
+  content: counter(step);
+  position: absolute;
+  left: -18px;
+  top: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 1px solid var(--green);
+  color: var(--green);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+ol li strong {
+  display: block;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+
+/* ---------- Listes à puces (Pour qui / Pourquoi Xonaera) ---------- */
+
+ul {
+  list-style: none;
+  margin: 0 0 16px;
+  padding: 0;
+}
+
+ul li {
+  position: relative;
+  padding-left: 26px;
+  margin-bottom: 10px;
+  color: var(--text-muted);
+}
+
+ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gradient-brand);
+}
+
+/* ---------- FAQ ---------- */
+
+section[aria-labelledby="faq-titre"] article {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 20px 22px;
+  margin-bottom: 12px;
+}
+
+section[aria-labelledby="faq-titre"] article h3 {
+  font-size: 1rem;
+}
+
+section[aria-labelledby="faq-titre"] article p {
+  margin-bottom: 0;
+}
+
+/* ---------- CTA final ---------- */
+
+section[aria-labelledby="cta-titre"] {
+  text-align: center;
+  border-bottom: none;
+}
+
+section[aria-labelledby="cta-titre"] p {
+  max-width: 52ch;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* ---------- Formulaires ---------- */
 
 form {
-  max-width: 700px;
+  max-width: 640px;
 }
 
 label {
   display: block;
-  margin-bottom: 15px;
+  margin-bottom: 18px;
   font-weight: 600;
+  color: var(--text);
+  font-size: 0.92rem;
 }
 
 input,
@@ -148,76 +535,74 @@ input,
 select,
 textarea {
   width: 100%;
-  margin-top: 5px;
-  padding: 10px;
-  border: 1px solid #bbb;
-  border-radius: 4px;
+  margin-top: 8px;
+  padding: 12px 14px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--text);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-muted);
 }
 
 textarea {
-  min-height: 150px;
+  min-height: 140px;
   resize: vertical;
-}
-
-button {
-  padding: 10px 18px;
-  border: 0;
-  border-radius: 4px;
-  cursor: pointer;
-  background: #174a7e;
-  color: #fff;
-  font-weight: 600;
-}
-
-button:hover {
-  background: #123a63;
-}
-
-button:focus-visible {
-  outline: 2px solid #174a7e;
-  outline-offset: 2px;
 }
 
 /* ---------- Barre de progression (calculateur de devis) ---------- */
 
 progress {
   width: 100%;
-  height: 12px;
+  height: 10px;
   border: 0;
-  border-radius: 6px;
+  border-radius: var(--radius-pill);
   overflow: hidden;
   appearance: none;
   -webkit-appearance: none;
 }
 
 progress::-webkit-progress-bar {
-  background: #e6e9ee;
-  border-radius: 6px;
+  background: var(--surface);
+  border-radius: var(--radius-pill);
 }
 
 progress::-webkit-progress-value {
-  background: #174a7e;
-  border-radius: 6px;
+  background: var(--gradient-brand);
+  border-radius: var(--radius-pill);
 }
 
 progress::-moz-progress-bar {
-  background: #174a7e;
-  border-radius: 6px;
+  background: var(--gradient-brand);
+  border-radius: var(--radius-pill);
 }
 
 /* ---------- Footer ---------- */
 
 footer {
-  margin-top: 50px;
-  padding: 30px 20px;
-  border-top: 1px solid #ddd;
+  margin-top: 0;
+  padding: 40px 24px;
+  border-top: 1px solid var(--border);
   text-align: center;
-  font-size: 0.9rem;
-  color: #666;
+  font-size: 0.85rem;
+  color: var(--text-muted);
 }
 
 footer p {
-  margin-bottom: 10px;
+  margin: 0 0 12px;
+  max-width: none;
+  color: var(--text-muted);
+}
+
+footer a {
+  color: var(--text-muted);
+}
+
+footer a:hover {
+  color: var(--green);
 }
 
 /* ---------- Éléments masqués ---------- */
@@ -228,18 +613,32 @@ footer p {
 
 /* ---------- Responsive ---------- */
 
+@media (max-width: 860px) {
+  section[aria-labelledby="services-titre"] > article {
+    grid-template-columns: 1fr;
+  }
+
+  section[aria-labelledby="services-titre"] > article::before {
+    min-height: 160px;
+  }
+}
+
 @media (max-width: 700px) {
   nav {
     flex-direction: column;
     align-items: flex-start;
+    gap: 14px;
   }
 
   nav ul {
-    flex-direction: column;
-    gap: 8px;
+    gap: 14px 18px;
+  }
+
+  section {
+    padding: 52px 0;
   }
 
   main {
-    padding: 30px 15px;
+    padding: 0 18px;
   }
 }
