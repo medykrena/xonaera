@@ -557,6 +557,16 @@ textarea {
   resize: vertical;
 }
 
+/* Formulaire de contact isolé (top-level dans main, ex. contact.html/kontakt.html) :
+   même traitement carte que le formulaire de devis, sans avoir à toucher au HTML. */
+main > form {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  margin-bottom: 56px;
+}
+
 /* ---------- Barre de progression (calculateur de devis) ---------- */
 
 progress {
@@ -718,7 +728,8 @@ footer a:hover {
   }
 
   section[aria-labelledby="calculateur-titre"],
-  section[aria-labelledby="demande-titre"] form {
+  section[aria-labelledby="demande-titre"] form,
+  main > form {
     padding: 22px;
   }
 }
