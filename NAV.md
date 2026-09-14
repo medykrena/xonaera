@@ -30,6 +30,8 @@ Ce fichier constitue la référence des chemins internes du site.
 - `/fr/blog/` — Blog
 - `/fr/blog/inspection-toiture-drone.html` — Article inspection de toiture
 - `/fr/blog/thermographie-batiment-drone.html` — Article thermographie de bâtiment
+- `/fr/blog/obligation-solaire-suisse.html` — Article obligation solaire en Suisse
+- `/fr/blog/dossier-ppe-geak-plus.html` — Article Dossier PPE / GEAK Plus
 
 ## Version allemande
 
@@ -57,6 +59,8 @@ Ce fichier constitue la référence des chemins internes du site.
 - `/de/blog/` — Blog
 - `/de/blog/drohnen-dachinspektion.html` — Article inspection de toiture
 - `/de/blog/thermografie-gebaeude-drohne.html` — Article thermographie de bâtiment
+- `/de/blog/solarpflicht-schweiz.html` — Article obligation solaire en Suisse
+- `/de/blog/ppe-dossier-geak-plus.html` — Article Dossier PPE / GEAK Plus
 
 ## Règles de maintenance
 
